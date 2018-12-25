@@ -1,10 +1,13 @@
 ﻿using DiaryMVVMApp1.Models;
+using DiaryMVVMApp1.ViewModels.Commands;
+using DiaryMVVMApp1.ViewModels.Commands.Bases;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace DiaryMVVMApp1.ViewModels
 {
@@ -25,6 +28,8 @@ namespace DiaryMVVMApp1.ViewModels
         public DiaryListViewModel(ObservableCollection<Diary> _diaries)
         {
             diaries = _diaries;
+            addCommand = new CommandBase(new Action(() => { }),
+                new Func<bool>(() => { return true; }));
             groups = new ObservableCollection<Group<string, Diary>>();
             Grouping();
         }
@@ -42,6 +47,20 @@ namespace DiaryMVVMApp1.ViewModels
                     GroupTitle = item.Key,
                     GroupItems = new ObservableCollection<Diary>(item.ToList())
                 });
+            }
+        }
+
+        public void Add()
+        {
+
+        }
+
+        private CommandBase addCommand;
+        public ICommand AddCommand
+        {
+            get
+            {
+                return addCommand;
             }
         }
     }

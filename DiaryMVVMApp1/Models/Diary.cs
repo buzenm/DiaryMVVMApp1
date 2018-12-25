@@ -25,7 +25,7 @@ namespace DiaryMVVMApp1.Models
                 if (weather != value)
                 {
                     weather = value;
-                    OnPropertyChanged(weather);
+                    OnPropertyChanged("Weather");
                 }
             }
         }
@@ -42,7 +42,7 @@ namespace DiaryMVVMApp1.Models
                 if (content != value)
                 {
                     content = value;
-                    OnPropertyChanged(content);
+                    OnPropertyChanged("Content");
                 }
             }
         }
