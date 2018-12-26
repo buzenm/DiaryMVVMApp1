@@ -5,10 +5,48 @@
     xmlns:local="using:DiaryMVVMApp1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:DiaryMVVMApp1.ViewModels"
+    xmlns:model="using:DiaryMVVMApp1.Models"
     mc:Ignorable="d"
+    DataContext="{Binding Source=diariyListViewModel,Mode=TwoWay}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <DataTemplate x:Key="DiaryListViewItemDataTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding Date}"/>
+                <TextBlock Text="{Binding Weather}"/>
+                <TextBlock Text="{Binding Content}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Pivot>
+                <PivotItem Header="备忘录">
 
+                </PivotItem>
+                <PivotItem Header="日记">
+                    <ListView ItemTemplate="{Binding Source={StaticResource DiaryListViewItemDataTemplate}}"
+                          ItemsSource="{Binding Diaries}"
+                          >
+                    </ListView>
+                </PivotItem>
+            </Pivot>
+            <CommandBar Grid.Row="1">
+                <AppBarButton Icon="Edit" Label="写"/>
+            </CommandBar>
+        </Grid>
+        <Frame Grid.Column="1"></Frame>
+        
     </Grid>
 </Page>

@@ -11,7 +11,17 @@ namespace DiaryMVVMApp1.Models
     public class Diary:NotifyPropertyChangedBase
     {
         private string date;
-        public string Date { get; set; }
+        public string Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                date = value;
+            }
+        }
 
         private string weather;
         public string Weather

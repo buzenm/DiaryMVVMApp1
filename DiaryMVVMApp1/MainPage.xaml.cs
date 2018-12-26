@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DiaryMVVMApp1.Models;
+using DiaryMVVMApp1.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +25,30 @@ namespace DiaryMVVMApp1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        public DiaryListViewModel diaryListViewModel;
         public MainPage()
         {
             this.InitializeComponent();
+            LoadDiaries();
+            this.DataContext = diaryListViewModel;
+        }
+
+        private void LoadDiaries()
+        {
+            ObservableCollection<Diary> diaries = 
+                new ObservableCollection<Diary>
+            {
+                new Diary
+                {
+                    Date="2018-11-11",
+                    Weather="晴",
+                    Content="阴"
+                }
+            };
+
+            diaryListViewModel = 
+                new DiaryListViewModel(diaries);
         }
     }
 }

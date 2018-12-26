@@ -1,6 +1,7 @@
 ﻿using DiaryMVVMApp1.Models;
 using DiaryMVVMApp1.ViewModels.Commands;
 using DiaryMVVMApp1.ViewModels.Commands.Bases;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +15,13 @@ namespace DiaryMVVMApp1.ViewModels
     public class DiaryListViewModel
     {
         private ObservableCollection<Diary> diaries;
+        public ObservableCollection<Diary> Diaries
+        {
+            get
+            {
+                return diaries;
+            }
+        }
 
         private ObservableCollection<Group<string, Diary>> groups;
         public ObservableCollection<Group<string,Diary>> Groups
@@ -28,7 +36,7 @@ namespace DiaryMVVMApp1.ViewModels
         public DiaryListViewModel(ObservableCollection<Diary> _diaries)
         {
             diaries = _diaries;
-            addCommand = new CommandBase(new Action(() => { }),
+            addCommand = new DelegateCommand(new Action(AddandUpdate),
                 new Func<bool>(() => { return true; }));
             groups = new ObservableCollection<Group<string, Diary>>();
             Grouping();
@@ -49,13 +57,48 @@ namespace DiaryMVVMApp1.ViewModels
                 });
             }
         }
-
-        public void Add()
+        private Diary addDiary;
+        public Diary AddDiary
         {
-
+            set
+            {
+                addDiary = value;
+            }
+        }
+        private void AddandUpdate()
+        {
+            var exit = from p in diaries
+                       where p.Date == addDiary.Date
+                       select p;
+            if (exit != null)
+            {
+                foreach (var item in exit)
+                {
+                    diaries[diaries.IndexOf(item)] = addDiary;
+                    
+                }
+            }
+            else
+            {
+                diaries.Add(addDiary);
+            }
         }
 
-        private CommandBase addCommand;
+        private void Delete(Diary _diary)
+        {
+            diaries?.Remove(_diary);
+        }
+
+        private CommandBase deleteCommand;
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                return deleteCommand;
+            }
+        }
+
+        private DelegateCommand addCommand;
         public ICommand AddCommand
         {
             get
