@@ -17,19 +17,13 @@ namespace DiaryMVVMApp1.ViewModels
         private ObservableCollection<Diary> diaries;
         public ObservableCollection<Diary> Diaries
         {
-            get
-            {
-                return diaries;
-            }
+            get;
         }
 
         private ObservableCollection<Group<string, Diary>> groups;
         public ObservableCollection<Group<string,Diary>> Groups
         {
-            get
-            {
-                return groups;
-            }
+            get;
             
         }
 
