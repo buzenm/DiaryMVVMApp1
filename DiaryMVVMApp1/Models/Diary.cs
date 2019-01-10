@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.Models
 {
-    public class Diary:NotifyPropertyChangedBase
+    public class Diary:Item, INotifyPropertyChanged
     {
         private string date;
         public string Date
@@ -41,6 +41,13 @@ namespace DiaryMVVMApp1.Models
         }
 
         private string content;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
         public string Content
         {
             get
