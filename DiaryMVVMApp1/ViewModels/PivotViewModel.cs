@@ -10,13 +10,12 @@ namespace DiaryMVVMApp1.ViewModels
 {
     public class PivotViewModel
     {
-        public string PivotTitle { get; set; }
+        public DiaryListViewModel DiaryListViewModel { get; set; }
 
-        public IEnumerable<ObservableCollection<Item>> PivotItemLists { get; set; }
-
+        
         public PivotViewModel()
         {
-            
+            //JianjiDatabase.GetInstance().Conn
         }
     }
 }

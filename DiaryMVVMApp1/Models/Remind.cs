@@ -7,34 +7,11 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.Models
 {
-    public class Remind : Item, INotifyPropertyChanged
+    public class Remind : Item
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyCHanged(string name)
+        public override Item GetItem()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            return this;
         }
-
-        public string Date { get; set; }
-
-        private string content;
-        public string Content
-        {
-            get
-            {
-                return content;
-            }
-            set
-            {
-                if (content != value)
-                {
-                    content = value;
-                    OnPropertyCHanged("Content");
-                }
-
-            }
-        }
-
-
     }
 }

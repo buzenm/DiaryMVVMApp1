@@ -8,21 +8,8 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.Models
 {
-    public class Diary:Item, INotifyPropertyChanged
+    public class Diary:Item
     {
-        private string date;
-        public string Date
-        {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                date = value;
-            }
-        }
-
         private string weather;
         public string Weather
         {
@@ -39,33 +26,13 @@ namespace DiaryMVVMApp1.Models
                 }
             }
         }
-
-        private string content;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        public string Content
+        public Diary item
         {
             get
             {
-                return content;
-            }
-            set
-            {
-                if (content != value)
-                {
-                    content = value;
-                    OnPropertyChanged("Content");
-                }
+                return this;
             }
         }
-
-
-
-
+        
     }
 }
