@@ -49,9 +49,6 @@ namespace DiaryMVVMApp1.Models
         {
 
         }
-        public IEnumerable<ObservableCollection<Item>> GetDatasListsList()
-        {
-            return null;
-        }
+        
     }
 }

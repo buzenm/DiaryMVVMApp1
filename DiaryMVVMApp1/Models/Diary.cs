@@ -10,6 +10,7 @@ namespace DiaryMVVMApp1.Models
 {
     public class Diary:Item
     {
+        public Diary(string _date) : base(_date) { }
         private string weather;
         public string Weather
         {
@@ -24,13 +25,6 @@ namespace DiaryMVVMApp1.Models
                     weather = value;
                     OnPropertyChanged("Weather");
                 }
-            }
-        }
-        public Diary item
-        {
-            get
-            {
-                return this;
             }
         }
         

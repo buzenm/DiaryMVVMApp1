@@ -9,9 +9,6 @@ namespace DiaryMVVMApp1.Models
 {
     public class Remind : Item
     {
-        public override Item GetItem()
-        {
-            return this;
-        }
+        public Remind (string _date) : base(_date) { }
     }
 }

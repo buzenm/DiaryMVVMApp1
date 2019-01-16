@@ -19,7 +19,7 @@
   <Class Name="DiaryMVVMApp1.Models.Diary" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAABAAAAAQAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAA=</HashCode>
       <FileName>Models\Diary.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -48,14 +48,14 @@
   <Class Name="DiaryMVVMApp1.Models.Remind" Collapsed="true">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Remind.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DiaryMVVMApp1.ViewModels.DiaryContentViewModel" Collapsed="true">
     <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAQAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModels\DiaryContentViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -69,7 +69,7 @@
   <Class Name="DiaryMVVMApp1.ViewModels.PivotViewModel" Collapsed="true">
     <Position X="7" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>BABAAgAAAAIAIAAAACAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModels\PivotViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>

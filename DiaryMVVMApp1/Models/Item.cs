@@ -12,17 +12,16 @@ namespace DiaryMVVMApp1.Models
         private string date;
         public string Date
         {
-            set
-            {
-                if (date != value)
-                {
-                    date = value;
-                }
-            }
+            get { return date; }
         }
 
+        public Item(string _date)
+        {
+            date = _date;
+        }
         private string content;
 
+        
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {
