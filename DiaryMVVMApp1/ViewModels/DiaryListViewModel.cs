@@ -1,6 +1,4 @@
 ﻿using DiaryMVVMApp1.Models;
-using DiaryMVVMApp1.ViewModels.Commands;
-using DiaryMVVMApp1.ViewModels.Commands.Bases;
 using Prism.Commands;
 using System;
 using System.Collections.Generic;
@@ -83,14 +81,8 @@ namespace DiaryMVVMApp1.ViewModels
             diaries?.Remove(_diary);
         }
 
-        private CommandBase deleteCommand;
-        public ICommand DeleteCommand
-        {
-            get
-            {
-                return deleteCommand;
-            }
-        }
+        
+        
 
         private DelegateCommand addCommand;
         public ICommand AddCommand

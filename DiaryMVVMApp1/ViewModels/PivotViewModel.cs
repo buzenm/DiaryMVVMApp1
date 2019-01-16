@@ -18,13 +18,15 @@ namespace DiaryMVVMApp1.ViewModels
         private ObservableCollection<Remind> reminds;
         public ObservableCollection<Remind> Reminds { get; set; }
 
-        public ListWork listWork;
+        private ListWork listWork;
 
         private ListViewModel diaryListViewModel;
         private ListViewModel remindListViewModel;
         public PivotViewModel()
         {
-            
+            remindListViewModel = new ListViewModel(reminds);
+            diaryListViewModel = new ListViewModel(diaries);
+            listWork = remindListViewModel;
             //JianjiDatabase.GetInstance().Conn
         }
     }

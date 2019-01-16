@@ -1,5 +1,4 @@
-﻿using DiaryMVVMApp1.Models.Bases;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;

@@ -53,7 +53,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DiaryMVVMApp1.ViewModels.DiaryContentViewModel" Collapsed="true">
-    <Position X="0.5" Y="4.75" Width="1.5" />
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModels\DiaryContentViewModel.cs</FileName>
@@ -64,6 +64,20 @@
     <TypeIdentifier>
       <HashCode>QAAAAkAAAAIAAAECgAEAAIAAAAEAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>ViewModels\DiaryListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiaryMVVMApp1.ViewModels.ListViewModel" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAEAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ListViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiaryMVVMApp1.ViewModels.ListWork" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ListWork.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DiaryMVVMApp1.ViewModels.PivotViewModel" Collapsed="true">
@@ -78,20 +92,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\PivotListPage.xaml.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DiaryMVVMApp1.ViewModels.ListViewModel" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAEAAAAAAAEAAAAAAAA=</HashCode>
-      <FileName>ViewModels\ListViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="DiaryMVVMApp1.ViewModels.ListWork" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAA=</HashCode>
-      <FileName>ViewModels\ListWork.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Microsoft YaHei UI" Size="9" />

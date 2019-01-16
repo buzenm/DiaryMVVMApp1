@@ -26,29 +26,13 @@ namespace DiaryMVVMApp1
     public sealed partial class MainPage : Page
     {
 
-        public DiaryListViewModel diaryListViewModel;
+        
         public MainPage()
         {
             this.InitializeComponent();
-            LoadDiaries();
-            this.DataContext = diaryListViewModel;
+            
         }
 
-        private void LoadDiaries()
-        {
-            ObservableCollection<Diary> diaries = 
-                new ObservableCollection<Diary>
-            {
-                new Diary
-                {
-                    Date="2018-11-11",
-                    Weather="晴",
-                    Content="阴"
-                }
-            };
-
-            diaryListViewModel = 
-                new DiaryListViewModel(diaries);
-        }
+        
     }
 }

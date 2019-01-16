@@ -12,9 +12,28 @@ namespace DiaryMVVMApp1.ViewModels
     {
         private ObservableCollection<Item> items;
 
-        public ListViewModel(ObservableCollection<Item> _items)
+        //public ListViewModel(ObservableCollection<Remind> reminds)
+        //{
+        //    foreach (var item in reminds)
+        //    {
+        //        items.Add(item);
+        //    }
+        //}
+
+        //public ListViewModel(ObservableCollection<Diary> diaries)
+        //{
+        //    foreach (var item in diaries)
+        //    {
+        //        items.Add(item);
+        //    }
+        //}
+        public ListViewModel(IEnumerable<Item> items)
         {
-            items = _items;
+            
+            foreach (var item in items)
+            {
+                this.items.Add(item);
+            }
         }
 
         /// <summary>

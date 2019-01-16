@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Storage;
 
 namespace DiaryMVVMApp1.Models
 {
@@ -14,7 +16,8 @@ namespace DiaryMVVMApp1.Models
 
         private JianjiDatabase()
         {
-            conn = new SqliteConnection("Filename=ms-appx:///YourDiary.db3");
+            
+            conn = new SqliteConnection("Filename="+ApplicationData.Current.LocalFolder.Path+"\\YourDiary.db3");
             Open();
         }
 

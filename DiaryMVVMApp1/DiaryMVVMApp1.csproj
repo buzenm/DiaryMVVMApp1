@@ -142,6 +142,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="DiaryMVVMApp1_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +178,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Core">
+      <Version>7.1.0.431</Version>
     </PackageReference>
     <PackageReference Include="Prism.Windows">
       <Version>6.3.0</Version>

@@ -8,6 +8,7 @@
     xmlns:vm="using:DiaryMVVMApp1.ViewModels"
     xmlns:model="using:DiaryMVVMApp1.Models"
     mc:Ignorable="d"
+    
     DataContext="{Binding Source=diariyListViewModel,Mode=TwoWay}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
