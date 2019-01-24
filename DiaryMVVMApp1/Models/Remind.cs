@@ -9,6 +9,9 @@ namespace DiaryMVVMApp1.Models
 {
     public class Remind : Item
     {
-        public Remind (string _date) : base(_date) { }
+        public Remind()
+        {
+            date = DateTime.Now.ToLongTimeString();
+        }
     }
 }

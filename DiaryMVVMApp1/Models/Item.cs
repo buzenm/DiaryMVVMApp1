@@ -9,16 +9,16 @@ namespace DiaryMVVMApp1.Models
 {
     public abstract class Item:INotifyPropertyChanged
     {
-        private string date;
+        protected string date;
         public string Date
         {
-            get { return date; }
+            get
+            {
+                return date;
+            }
         }
 
-        public Item(string _date)
-        {
-            date = _date;
-        }
+
         private string content;
 
         

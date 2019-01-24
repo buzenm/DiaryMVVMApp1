@@ -20,11 +20,16 @@ namespace DiaryMVVMApp1.Views
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class PivotListPage : Page
+    public sealed partial class RemindContentPage : Page
     {
-        public PivotListPage()
+        public RemindContentPage()
         {
             this.InitializeComponent();
+        }
+
+        private void SaveAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

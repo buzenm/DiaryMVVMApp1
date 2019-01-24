@@ -7,10 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:DiaryMVVMApp1.ViewModels"
     xmlns:model="using:DiaryMVVMApp1.Models"
+    xmlns:style="using:DiaryMVVMApp1.Styles"
     mc:Ignorable="d"
-    
-    DataContext="{Binding Source=diariyListViewModel,Mode=TwoWay}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vm:PivotViewModel/>
+    </Page.DataContext>
     <Page.Resources>
         <DataTemplate x:Key="DiaryListViewItemDataTemplate">
             <StackPanel>
@@ -19,6 +21,27 @@
                 <TextBlock Text="{Binding Content}"/>
             </StackPanel>
         </DataTemplate>
+
+        <DataTemplate x:Key="RemindListViewItemDataTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding Date}"/>
+                <TextBlock Text="{Binding Content}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DiaryListViewHeaderDataTemplate">
+            <TextBlock/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="RemindListViewHeaderDataTemplate">
+            <TextBlock/>
+        </DataTemplate>
+
+        <ResourceDictionary x:Name="ItemStyle">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/ListViewItemStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,27 +50,39 @@
         </Grid.ColumnDefinitions>
         
         
-        <Grid>
+        <Grid x:Name="LeftGrid">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <Pivot>
+            <Pivot Name="MyPivot" Margin="0,0,0,0" SelectionChanged="MyPivot_SelectionChanged" 
+                   Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}">
                 <PivotItem Header="备忘录">
-
+                    <SemanticZoom>
+                        <SemanticZoom.ZoomedInView>
+                            <ListView></ListView>
+                        </SemanticZoom.ZoomedInView>
+                        <SemanticZoom.ZoomedOutView>
+                            <ListView></ListView>
+                        </SemanticZoom.ZoomedOutView>
+                    </SemanticZoom>
                 </PivotItem>
                 <PivotItem Header="日记">
-                    <ListView ItemTemplate="{Binding Source={StaticResource DiaryListViewItemDataTemplate}}"
-                          ItemsSource="{Binding Diaries}"
-                          >
-                    </ListView>
+                    <SemanticZoom>
+                        <SemanticZoom.ZoomedInView>
+                            <ListView></ListView>
+                        </SemanticZoom.ZoomedInView>
+                        <SemanticZoom.ZoomedOutView>
+                            <ListView></ListView>
+                        </SemanticZoom.ZoomedOutView>
+                    </SemanticZoom>
                 </PivotItem>
             </Pivot>
             <CommandBar Grid.Row="1">
                 <AppBarButton Icon="Edit" Label="写"/>
             </CommandBar>
         </Grid>
-        <Frame Grid.Column="1"></Frame>
+        <Frame Grid.Column="1" x:Name="RightFrame"></Frame>
         
     </Grid>
 </Page>

@@ -1,0 +1,67 @@
+﻿<Page
+    x:Class="DiaryMVVMApp1.Views.DiaryContentPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DiaryMVVMApp1.Views"
+    xmlns:vm="using:DiaryMVVMApp1.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vm:ContentViewModel/>
+    </Page.DataContext>
+    <Grid Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="26" 
+                   Name="TitleTextBlock" 
+                   x:FieldModifier="Public"
+                   Margin="20,7,25,0"
+                   Text="{Binding Diary.Date}"></TextBlock>
+        <TextBox Grid.Row="1" 
+                 Name="ContentTextBox" 
+                 BorderThickness="0"
+                 Margin="20,10,25,10" 
+                 TextWrapping="Wrap" 
+                 AcceptsReturn="True" 
+                 Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}"
+                 x:FieldModifier="Public"
+                 FontSize="24" 
+                 Text="{Binding Diary.Content}"
+                 PlaceholderText="学而不思则罔，思而不学则殆，不思不学则网贷"></TextBox>
+        <ComboBox Grid.Row="2" 
+                  HorizontalAlignment="Right" 
+                  BorderThickness="0"
+                  Margin="0,0,25,10" 
+                  Height="35" 
+                  Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}"
+                  PlaceholderText="天气" 
+                  FontSize="18" 
+                  x:FieldModifier="Public"
+                  Name="WeatherComboBox" 
+                  SelectionChanged="WeatherComboBox_SelectionChanged">
+            <!--<ComboBoxItem Content="晴">
+                
+            </ComboBoxItem>
+            <ComboBoxItem Content="多云"></ComboBoxItem>
+            <ComboBoxItem Content="阴"></ComboBoxItem>
+            <ComboBoxItem Content="雨"></ComboBoxItem>-->
+            <x:String>晴</x:String>
+            <x:String>多云</x:String>
+            <x:String>阴</x:String>
+            <x:String>雨</x:String>
+        </ComboBox>
+        <CommandBar Grid.Row="3" 
+                    Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}">
+            <AppBarButton Icon="Back" Label="上一篇" ToolTipService.ToolTip="上一篇"></AppBarButton>
+            <AppBarButton Icon="Forward" Label="下一篇"></AppBarButton>
+            <AppBarButton Icon="Save" Label="保存" Name="SaveAppBarButton" ToolTipService.ToolTip="保存" Click="SaveAppBarButton_Click"></AppBarButton>
+        </CommandBar>
+    </Grid>
+</Page>

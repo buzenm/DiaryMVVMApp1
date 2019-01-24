@@ -1,9 +1,5 @@
-﻿using DiaryMVVMApp1.Models;
-using DiaryMVVMApp1.ViewModels;
-using DiaryMVVMApp1.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -17,31 +13,26 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
+// https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
-namespace DiaryMVVMApp1
+namespace DiaryMVVMApp1.Views
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class DiaryContentPage : Page
     {
-
-        
-        public MainPage()
+        public DiaryContentPage()
         {
             this.InitializeComponent();
-            
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void SaveAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            base.OnNavigatedTo(e);
 
-            RightFrame.Navigate(typeof(RemindContentPage));
         }
 
-        private void MyPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void WeatherComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

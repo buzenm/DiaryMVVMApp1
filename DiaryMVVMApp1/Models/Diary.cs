@@ -9,7 +9,10 @@ namespace DiaryMVVMApp1.Models
 {
     public class Diary:Item
     {
-        public Diary(string _date) : base(_date) { }
+        public Diary()
+        {
+            date = DateTime.Now.ToLongDateString();
+        }
         private string weather;
         public string Weather
         {
