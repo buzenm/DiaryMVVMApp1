@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.ViewModels
 {
+    /// <summary>
+    /// 列表模型
+    /// </summary>
     public class ListViewModel:IListWork
     {
         private ObservableCollection<Item> items;

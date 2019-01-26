@@ -13,10 +13,6 @@ namespace DiaryMVVMApp1.ViewModels
     {
         public Item Item { get; set; }
 
-        public Diary Diary { get; set; }
-
-        public Remind Remind { get; set; }
-
         public void Save()
         {
             
@@ -31,9 +27,19 @@ namespace DiaryMVVMApp1.ViewModels
 
         public ContentViewModel()
         {
-            Remind = new Remind();
-            Item = Remind;
+            SetSubscribe();
             SaveCommand = new DelegateCommand(new Action(Save));
+        }
+
+        protected virtual void NewItem(Item item) { }
+
+        private void SetSubscribe()
+        {
+            EventAggregatorRepository
+                .GetInstance()
+                .eventAggregator
+                .GetEvent<GetInputMessages>()
+                .Subscribe(new Action<Item>(NewItem));
         }
     }
 }

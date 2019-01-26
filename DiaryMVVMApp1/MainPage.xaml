@@ -55,8 +55,11 @@
                 <RowDefinition/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <Pivot Name="MyPivot" Margin="0,0,0,0" SelectionChanged="MyPivot_SelectionChanged" 
+            <Pivot Name="MyPivot" Margin="0,0,0,0" 
+                   SelectionChanged="MyPivot_SelectionChanged" 
+                   SelectedIndex="{Binding Path=SelectedIndex,Mode=TwoWay}"
                    Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}">
+                
                 <PivotItem Header="备忘录">
                     <SemanticZoom>
                         <SemanticZoom.ZoomedInView>
@@ -79,7 +82,10 @@
                 </PivotItem>
             </Pivot>
             <CommandBar Grid.Row="1">
-                <AppBarButton Icon="Edit" Label="写"/>
+                <AppBarButton Icon="Edit" Label="写" 
+                              Command="{Binding AddCommand}" 
+                              x:Name="EditAppBarButton"
+                              Click="EditAppBarButton_Click"/>
             </CommandBar>
         </Grid>
         <Frame Grid.Column="1" x:Name="RightFrame"></Frame>

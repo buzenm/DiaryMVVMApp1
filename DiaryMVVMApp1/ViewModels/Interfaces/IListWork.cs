@@ -11,7 +11,14 @@ namespace DiaryMVVMApp1.ViewModels.Interfaces
     {
         void AddAndUpdate();
 
+        /// <summary>
+        /// 增加或更新
+        /// </summary>
         void AddAndUpdate(Item item);
+
+        /// <summary>
+        /// 删除
+        /// </summary>
         void Delete();
     }
 }

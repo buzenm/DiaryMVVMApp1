@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
-        <vm:ContentViewModel/>
+        <vm:DiaryContentViewModel/>
     </Page.DataContext>
     <Grid Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}">
         <Grid.RowDefinitions>

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.Models
 {
+    /// <summary>
+    /// 记录类父类，时间初始化、只读
+    /// </summary>
     public abstract class Item:INotifyPropertyChanged
     {
         protected string date;

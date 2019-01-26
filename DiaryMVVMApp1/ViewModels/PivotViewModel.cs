@@ -35,7 +35,7 @@ namespace DiaryMVVMApp1.ViewModels
             //JianjiDatabase.GetInstance().Conn
             AddAndUpdateCommand = new DelegateCommand(new Action(listWork.AddAndUpdate));
             deleteCommand = new DelegateCommand(new Action(listWork.Delete));
-
+            AddCommand = new DelegateCommand(new Action(Add));
             SetSubscribe();
         }
 
@@ -48,12 +48,61 @@ namespace DiaryMVVMApp1.ViewModels
                 .Subscribe(new Action<Item>(listWork.AddAndUpdate));
         }
 
+        /// <summary>
+        /// 改变要操作的列表
+        /// </summary>
         public void ChangeSelect()
         {
             if (listWork == remindListViewModel)
                 listWork = diaryListViewModel;
             else
                 listWork = remindListViewModel;
+        }
+
+        public DelegateCommand AddCommand { get; set; }
+
+
+        public void Add() 
+        {
+            if (listWork == remindListViewModel)
+            {
+                Remind remind = new Remind();
+                EventAggregatorRepository
+                .GetInstance()
+                .eventAggregator
+                .GetEvent<GetInputMessages>()
+                .Publish(remind);
+            }
+            else
+            {
+                Diary diary = new Diary();
+                EventAggregatorRepository
+                .GetInstance()
+                .eventAggregator
+                .GetEvent<GetInputMessages>()
+                .Publish(diary);
+            }
+            
+        }
+
+        private int selectedIndex;
+        public int SelectedIndex
+        {
+            get
+            {
+                return selectedIndex;
+            }
+            set
+            {
+                if (selectedIndex!=value)
+                {
+                    selectedIndex = value;
+                    ChangeSelect();
+                    Add();
+                }
+                
+                
+            }
         }
 
         public DelegateCommand AddAndUpdateCommand { get; set; }

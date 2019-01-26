@@ -43,7 +43,26 @@ namespace DiaryMVVMApp1
 
         private void MyPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (MyPivot.SelectedIndex == 0)
+            {
+                RightFrame.Navigate(typeof(RemindContentPage));
+            }
+            else
+            {
+                RightFrame.Navigate(typeof(DiaryContentPage));
+            }
+        }
 
+        private void EditAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MyPivot.SelectedIndex == 0)
+            {
+                RightFrame.Navigate(typeof(RemindContentPage));
+            }
+            else
+            {
+                RightFrame.Navigate(typeof(DiaryContentPage));
+            }
         }
     }
 }

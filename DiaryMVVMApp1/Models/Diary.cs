@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.Models
 {
+    /// <summary>
+    /// 日记类，每日一记
+    /// </summary>
     public class Diary:Item
     {
         public Diary()

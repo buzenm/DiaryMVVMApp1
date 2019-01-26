@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.Models
 {
+    /// <summary>
+    /// 随记类，随时记录
+    /// </summary>
     public class Remind : Item
     {
         public Remind()

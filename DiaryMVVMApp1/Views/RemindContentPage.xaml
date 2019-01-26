@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
-        <vm:ContentViewModel/>
+        <vm:RemindContentViewModel/>
     </Page.DataContext>
     <Grid Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}">
         <Grid.RowDefinitions>
@@ -18,7 +18,7 @@
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Name="TitleTextblock" FontSize="26" Margin="20,7,0,0" x:FieldModifier="Public"
+        <TextBlock Name="TitleTextblock" FontSize="26" Margin="20,7,0,0"
                    Text="{Binding Path=Remind.Date,Mode=TwoWay}"></TextBlock>
         <TextBox Grid.Row="1" 
                  Name="ContentTextBox" 
