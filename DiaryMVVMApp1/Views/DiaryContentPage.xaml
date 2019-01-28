@@ -24,8 +24,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock FontSize="26" 
-                   Name="TitleTextBlock" 
-                   x:FieldModifier="Public"
+                   Name="TitleTextBlock"
                    Margin="20,7,25,0"
                    Text="{Binding Diary.Date}"></TextBlock>
         <TextBox Grid.Row="1" 
@@ -35,7 +34,6 @@
                  TextWrapping="Wrap" 
                  AcceptsReturn="True" 
                  Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}"
-                 x:FieldModifier="Public"
                  FontSize="24" 
                  Text="{Binding Diary.Content}"
                  PlaceholderText="学而不思则罔，思而不学则殆，不思不学则网贷"></TextBox>
@@ -44,13 +42,13 @@
                   BorderThickness="0"
                   Margin="0,0,25,10" 
                   Height="35" 
-                  SelectedIndex="{Binding Path=Diary.Weather,Converter={StaticResource WeatherConvert},Mode=TwoWay}"
+                  SelectedIndex="{Binding Path=Diary.Weather
+            ,Converter={StaticResource WeatherConvert}
+            ,Mode=TwoWay}"
                   Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}"
                   PlaceholderText="天气" 
                   FontSize="18" 
-                  x:FieldModifier="Public"
-                  Name="WeatherComboBox" 
-                  SelectionChanged="WeatherComboBox_SelectionChanged">
+                  >
             <!--<ComboBoxItem Content="晴">
                 
             </ComboBoxItem>
