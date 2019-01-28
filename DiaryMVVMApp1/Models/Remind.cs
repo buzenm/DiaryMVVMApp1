@@ -14,7 +14,7 @@ namespace DiaryMVVMApp1.Models
     {
         public Remind()
         {
-            date = DateTime.Now.ToLongTimeString();
+            date = DateTime.Now.ToString();
         }
     }
 }

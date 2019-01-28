@@ -55,6 +55,7 @@
                 <RowDefinition/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
+            <!--利用pivot的选中索引切换要操作列表-->
             <Pivot Name="MyPivot" Margin="0,0,0,0" 
                    SelectionChanged="MyPivot_SelectionChanged" 
                    SelectedIndex="{Binding Path=SelectedIndex,Mode=TwoWay}"
