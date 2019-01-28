@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DiaryMVVMApp1.Views"
     xmlns:vm="using:DiaryMVVMApp1.ViewModels"
+    xmlns:convert="using:DiaryMVVMApp1.ViewModels.Converts"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -11,6 +12,9 @@
     <Page.DataContext>
         <vm:DiaryContentViewModel/>
     </Page.DataContext>
+    <Page.Resources>
+        <convert:WeatherConvert x:Name="WeatherConvert"/>
+    </Page.Resources>
     <Grid Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -40,6 +44,7 @@
                   BorderThickness="0"
                   Margin="0,0,25,10" 
                   Height="35" 
+                  SelectedIndex="{Binding Path=Diary.Weather,Converter={StaticResource WeatherConvert},Mode=TwoWay}"
                   Background="{ThemeResource SystemControlAltLowAcrylicWindowBrush}"
                   PlaceholderText="天气" 
                   FontSize="18" 

@@ -11,12 +11,38 @@ namespace DiaryMVVMApp1.ViewModels.Converts
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            throw new NotImplementedException();
+            string s = value?.ToString();
+            switch (s)
+            {
+                case "晴":
+                    return 0;
+                case "多云":
+                    return 1;
+                case "阴":
+                    return 2;
+                case "雨":
+                    return 3;
+                default:
+                    return -1;
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            throw new NotImplementedException();
+            int i = (int)value;
+            switch (i)
+            {
+                case 0:
+                    return "晴";
+                case 1:
+                    return "多云";
+                    case 2:
+                    return "阴";
+                case 3:
+                    return "雨";
+                default:
+                    return null;
+            }
         }
     }
 }
