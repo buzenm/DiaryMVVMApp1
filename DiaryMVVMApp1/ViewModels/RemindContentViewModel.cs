@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.ViewModels
 {
+    /// <summary>
+    /// 随记内容视图模型
+    /// </summary>
     public class RemindContentViewModel:ContentViewModel
     {
         public Remind Remind { get; set; }

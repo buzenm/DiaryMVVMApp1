@@ -9,10 +9,16 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.ViewModels
 {
+    /// <summary>
+    /// 记录子项内容视图模型
+    /// </summary>
     public class ContentViewModel
     {
         public Item Item { get; set; }
 
+        /// <summary>
+        /// 发送保存命令给列表视图模型
+        /// </summary>
         public void Save()
         {
             
@@ -33,6 +39,9 @@ namespace DiaryMVVMApp1.ViewModels
 
         protected virtual void NewItem(Item item) { }
 
+        /// <summary>
+        /// 接收一个item用于改变内容
+        /// </summary>
         private void SetSubscribe()
         {
             EventAggregatorRepository

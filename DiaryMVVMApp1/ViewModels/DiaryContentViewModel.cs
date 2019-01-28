@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.ViewModels
 {
+    /// <summary>
+    /// 日记视图模型
+    /// </summary>
     public class DiaryContentViewModel : ContentViewModel
     {
         public Diary Diary { get; set; }

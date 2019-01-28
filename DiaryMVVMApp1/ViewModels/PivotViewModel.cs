@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.ViewModels
 {
+    /// <summary>
+    /// Pivot，列表视图模型
+    /// </summary>
     public class PivotViewModel
     {
         //public DiaryListViewModel DiaryListViewModel { get; set; }

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DiaryMVVMApp1.ViewModels.Interfaces
 {
+    /// <summary>
+    /// 列表操作接口
+    /// </summary>
     interface IListWork
     {
         void AddAndUpdate();
