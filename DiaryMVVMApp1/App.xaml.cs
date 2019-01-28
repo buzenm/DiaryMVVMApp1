@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UWP;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -32,6 +36,32 @@ namespace DiaryMVVMApp1
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            this.UnhandledException += OnUnhandledException;
+        }
+
+        /// <summary>
+        /// Should be called from OnActivated and OnLaunched
+        /// </summary>
+        private void RegisterExceptionHandlingSynchronizationContext()
+        {
+            ExceptionHandlingSynchronizationContext
+                .Register()
+                .UnhandledException += SynchronizationContext_UnhandledException;
+        }
+
+        private async void SynchronizationContext_UnhandledException(object sender, UWP.UnhandledExceptionEventArgs e)
+        {
+            e.Handled = true;
+            //await new MessageDialog("Synchronization Context Unhandled Exception:\r\n" + e.Exception.Message, "应用异常")
+            //    .ShowAsync();
+            await new ContentDialog()
+            {
+                Title = "YourDiary",
+                Content = "Synchronization Context Unhandled Exception:\r\n" + e.Exception.Message,
+                IsSecondaryButtonEnabled = true,
+                SecondaryButtonText = "关闭"
+            }.ShowAsync();
         }
 
         /// <summary>
@@ -72,6 +102,7 @@ namespace DiaryMVVMApp1
                 }
                 // 确保当前窗口处于活动状态
                 Window.Current.Activate();
+                ExtendAcrylicIntoTitleBar();
             }
 
             StorageFolder folder = ApplicationData.Current.LocalFolder;
@@ -82,6 +113,20 @@ namespace DiaryMVVMApp1
                 JianjiDatabase.GetInstance().Open();
         }
 
+
+        /// Extend acrylic into the title bar. 
+        private void ExtendAcrylicIntoTitleBar()
+        {
+
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            //titleBar.BackgroundColor= Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            titleBar.ButtonForegroundColor = Color.FromArgb(0, 0, 0, 0);
+
+
+        }
         /// <summary>
         /// 导航到特定页失败时调用
         /// </summary>
@@ -107,6 +152,18 @@ namespace DiaryMVVMApp1
             JianjiDatabase.GetInstance().Close();
         }
 
-        
+        private async void OnUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            e.Handled = true;
+            //await new MessageDialog("Application Unhandled Exception:\r\n" + e.Exception.Message, "爆了 :(")
+            //    .ShowAsync();
+            await new ContentDialog()
+            {
+                Title = "YourDiary",
+                Content = "Application Unhandled Exception:\r\n" + e.Exception.Message,
+                IsSecondaryButtonEnabled = true,
+                SecondaryButtonText = "关闭"
+            }.ShowAsync();
+        }
     }
 }
