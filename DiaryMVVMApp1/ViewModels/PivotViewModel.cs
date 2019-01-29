@@ -16,8 +16,6 @@ namespace DiaryMVVMApp1.ViewModels
     /// </summary>
     public class PivotViewModel
     {
-        //public DiaryListViewModel DiaryListViewModel { get; set; }
-
         private ObservableCollection<Diary> diaries;
         public ObservableCollection<Diary> Diaries { get; set; }
 
@@ -114,43 +112,6 @@ namespace DiaryMVVMApp1.ViewModels
                     break;
                 default:
                     break;
-            }
-            //if (listWork == remindListViewModel)
-            //{
-            //    EventAggregatorRepository
-            //    .GetInstance()
-            //    .eventAggregator
-            //    .GetEvent<GetInputMessages>()
-            //    .Publish( new Remind());
-            //}
-            //else
-            //{
-            //    EventAggregatorRepository
-            //    .GetInstance()
-            //    .eventAggregator
-            //    .GetEvent<GetInputMessages>()
-            //    .Publish(new Diary());
-            //}
-            
-        }
-
-        private int selectedIndex;
-        public int SelectedIndex
-        {
-            get
-            {
-                return selectedIndex;
-            }
-            set
-            {
-                if (selectedIndex!=value)
-                {
-                    selectedIndex = value;
-                    ChangeSelect();
-                    Add();
-                }
-                
-                
             }
         }
 
