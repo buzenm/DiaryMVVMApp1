@@ -37,6 +37,10 @@ namespace DiaryMVVMApp1.ViewModels
             SaveCommand = new DelegateCommand(new Action(Save));
         }
 
+        /// <summary>
+        /// 接收一个item初始化内容
+        /// </summary>
+        /// <param name="item"></param>
         protected virtual void NewItem(Item item) { }
 
         /// <summary>

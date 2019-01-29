@@ -7,6 +7,9 @@ using Windows.UI.Xaml.Data;
 
 namespace DiaryMVVMApp1.ViewModels.Converts
 {
+    /// <summary>
+    /// 天气转换器 string int
+    /// </summary>
     public class WeatherConvert:IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)

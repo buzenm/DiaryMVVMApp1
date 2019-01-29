@@ -42,6 +42,9 @@ namespace DiaryMVVMApp1.ViewModels
             SetSubscribe();
         }
 
+        /// <summary>
+        /// 接收一个item，增加或更新列表
+        /// </summary>
         private void SetSubscribe()
         {
             EventAggregatorRepository
@@ -64,26 +67,26 @@ namespace DiaryMVVMApp1.ViewModels
 
         public DelegateCommand AddCommand { get; set; }
 
-
+        /// <summary>
+        /// 给内容视图模型发送一个初始化的item
+        /// </summary>
         public void Add() 
         {
             if (listWork == remindListViewModel)
             {
-                Remind remind = new Remind();
                 EventAggregatorRepository
                 .GetInstance()
                 .eventAggregator
                 .GetEvent<GetInputMessages>()
-                .Publish(remind);
+                .Publish( new Remind());
             }
             else
             {
-                Diary diary = new Diary();
                 EventAggregatorRepository
                 .GetInstance()
                 .eventAggregator
                 .GetEvent<GetInputMessages>()
-                .Publish(diary);
+                .Publish(new Diary());
             }
             
         }
