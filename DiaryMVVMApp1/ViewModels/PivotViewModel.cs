@@ -24,8 +24,27 @@ namespace DiaryMVVMApp1.ViewModels
         private ObservableCollection<Remind> reminds;
         public ObservableCollection<Remind> Reminds { get; set; }
 
+
+        private int selectedListIndex;
+        public int SelectedListIndex
+        {
+            get
+            {
+                return selectedListIndex;
+            }
+            set
+            {
+                if (selectedListIndex != value)
+                {
+                    selectedListIndex = value;
+                    listWork = listViewModels[selectedListIndex];
+                }
+            }
+        }
+
         private IListWork listWork;
 
+        private List<ListViewModel> listViewModels=new List<ListViewModel>();
         private ListViewModel diaryListViewModel;
         private ListViewModel remindListViewModel;
         public PivotViewModel() 
@@ -34,7 +53,12 @@ namespace DiaryMVVMApp1.ViewModels
             diaries = new ObservableCollection<Diary>();
             remindListViewModel = new ListViewModel(reminds);
             diaryListViewModel = new ListViewModel(diaries);
-            listWork = remindListViewModel;
+
+            listViewModels.AddRange(new List<ListViewModel>()
+            {
+                remindListViewModel,diaryListViewModel
+            });
+            listWork = listViewModels[0];
             //JianjiDatabase.GetInstance().Conn
             AddAndUpdateCommand = new DelegateCommand(new Action(listWork.AddAndUpdate));
             deleteCommand = new DelegateCommand(new Action(listWork.Delete));
@@ -72,22 +96,41 @@ namespace DiaryMVVMApp1.ViewModels
         /// </summary>
         public void Add() 
         {
-            if (listWork == remindListViewModel)
+            switch (selectedListIndex)
             {
-                EventAggregatorRepository
+                case 0:
+                    EventAggregatorRepository
                 .GetInstance()
                 .eventAggregator
                 .GetEvent<GetInputMessages>()
-                .Publish( new Remind());
-            }
-            else
-            {
-                EventAggregatorRepository
+                .Publish(new Remind());
+                    break;
+                case 1:
+                    EventAggregatorRepository
                 .GetInstance()
                 .eventAggregator
                 .GetEvent<GetInputMessages>()
                 .Publish(new Diary());
+                    break;
+                default:
+                    break;
             }
+            //if (listWork == remindListViewModel)
+            //{
+            //    EventAggregatorRepository
+            //    .GetInstance()
+            //    .eventAggregator
+            //    .GetEvent<GetInputMessages>()
+            //    .Publish( new Remind());
+            //}
+            //else
+            //{
+            //    EventAggregatorRepository
+            //    .GetInstance()
+            //    .eventAggregator
+            //    .GetEvent<GetInputMessages>()
+            //    .Publish(new Diary());
+            //}
             
         }
 
