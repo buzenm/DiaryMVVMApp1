@@ -76,17 +76,6 @@ namespace DiaryMVVMApp1.ViewModels
                 .Subscribe(new Action<Item>(listWork.AddAndUpdate));
         }
 
-        /// <summary>
-        /// 改变要操作的列表
-        /// </summary>
-        public void ChangeSelect()
-        {
-            if (listWork == remindListViewModel)
-                listWork = diaryListViewModel;
-            else
-                listWork = remindListViewModel;
-        }
-
         public DelegateCommand AddCommand { get; set; }
 
         /// <summary>
@@ -108,7 +97,8 @@ namespace DiaryMVVMApp1.ViewModels
                 .GetInstance()
                 .eventAggregator
                 .GetEvent<GetInputMessages>()
-                .Publish(new Diary());
+                .Publish(diaries.Where(p=>p.Date==DateTime.Now.ToLongDateString()).ToList().Count==0
+                ?new Diary(): diaries.Where(p => p.Date == DateTime.Now.ToLongDateString()).First());
                     break;
                 default:
                     break;
